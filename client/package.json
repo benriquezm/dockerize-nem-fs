@@ -36,6 +36,7 @@
     "graphql": "^16.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "6",
     "style-loader": "^3.3.1"
   }
 }

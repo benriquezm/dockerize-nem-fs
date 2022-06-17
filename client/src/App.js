@@ -1,41 +1,19 @@
 import React from "react";
-import { gql } from "graphql-tag";
-import { useQuery } from "@apollo/react-hooks";
+import { Routes, Route, Link } from "react-router-dom";
 
-import Product from "./components/product/product";
-
-//  query graphql for list all products and specified fields object product
-const GET_PRODUCTS = gql`
-    query {
-        products {
-            id
-            title
-            price
-            image
-        }
-    }
-`;
+import NotFound from "./pages/notFound/notFound";
+import Products from "./pages/products/products";
+import ProductDetails from "./pages/products/productDetails";
 
 const App = () => {
-    const { loading, error, data } = useQuery(GET_PRODUCTS);
-
-    if (error) return <h1>Ups, something went wrong!</h1>
-    if (loading) return <h1>loading ...</h1>
     return (
-        <main>
-            <div className="text-center container mb-5 mt-5">
-                <div className="row">
-                    <h1>NEM | Products</h1>
-                    {
-                        data.products.map(product => {
-                            return(
-                                <Product key={product.id} product={product} />
-                            );
-                        })
-                    }
-                </div>
-            </div>
-        </main>
+        <div className="App">
+            <Routes>
+                <Route path="/products" element={ <Products /> } />
+                <Route path="/products/:id" element={ <ProductDetails /> } />
+                <Route path="*" element={ <NotFound /> } />
+            </Routes>
+        </div>
     );
 };
 
