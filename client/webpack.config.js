@@ -11,10 +11,11 @@ module.exports = {
     target: "web",
     devServer: {
         port: "8080",
-        static: ["./public"],
+        static: path.resolve(__dirname, "dist"),
         open: true,
         hot: true,
         liveReload: true,
+        historyApiFallback: true,
     },
     resolve: {
         extensions: [".js", ".jsx", ".json"],
