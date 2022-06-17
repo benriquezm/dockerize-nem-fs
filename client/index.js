@@ -2,6 +2,7 @@ import React from "react";
 import { createRoot } from 'react-dom/client';
 import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client";
 import { ApolloProvider } from "@apollo/react-hooks";
+import "bootstrap/dist/css/bootstrap.css";
 
 import App from "./src/App";
 

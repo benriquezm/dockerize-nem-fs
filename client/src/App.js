@@ -23,14 +23,18 @@ const App = () => {
     if (loading) return <h1>loading ...</h1>
     return (
         <main>
-            <h1>NEM | Products</h1>
-            {
-                data.products.map(product => {
-                    return(
-                        <Product key={product.id} product={product} />
-                    );
-                })
-            }
+            <div className="text-center container mb-5 mt-5">
+                <div className="row">
+                    <h1>NEM | Products</h1>
+                    {
+                        data.products.map(product => {
+                            return(
+                                <Product key={product.id} product={product} />
+                            );
+                        })
+                    }
+                </div>
+            </div>
         </main>
     );
 };
